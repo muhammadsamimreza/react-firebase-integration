@@ -1,48 +1,69 @@
-
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router";
 import { auth } from "../Firebase/Firebase.init";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
+  const [show, setShow] = useState(false);
 
-    const handleRegister = (e) =>{
-        e.preventDefault()
-        const email = e.target.email.value;
-        const password =e.target.password.value;
-        console.log(email, password)
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    console.log(email, password);
 
-        createUserWithEmailAndPassword(auth, email, password)
-        .then((result)=>{
-            console.log(result.user)
-        })
-        .catch(err=>{
-            console.log(err)
-        })
-    }
-  return ( 
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  return (
     <div className="min-h-screen flex justify-center items-center">
       <div className="card bg-base-100 w-full mx-auto max-w-sm shrink-0 shadow-2xl">
         <div className="card-body">
           <h1 className="text-3xl font-bold">Register now!</h1>
           <form onSubmit={handleRegister}>
             <fieldset className="fieldset">
-                {/* email field */}
-              <label className="label">Email</label>
-              <input type="email" 
-              className="input" 
-              name="email"
-              placeholder="Email" />
+              {/* email field */}
+              <div>
+                <label className="label">Email</label>
+                <input
+                  type="email"
+                  className="input"
+                  name="email"
+                  placeholder="Email"
+                />
+              </div>
               {/* password field */}
-              <label className="label">Password</label>
-              <input type="password" 
-              className="input" 
-              name="password"
-              placeholder="Password" />
+              <div className="relative">
+                <label className="label">Password</label>
+                <input
+                  type={show ? "text" : "password"}
+                  className="input"
+                  name="password"
+                  placeholder="Password"
+                />
+                <span onClick={()=>setShow(!show)} className="absolute text-lg top-7 right-7 z-50 ">
+                    {show ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>} 
+                   </span>
+              </div>
               <button className="btn btn-neutral mt-4">Register</button>
               <div className="">
-                <p className="flex justify-center space-x-1"><span>Already Have an Account?</span>  
-                     <span><Link to='/login' className="text-blue-500 hover:underline hover:text-blue-600 font-medium"> Please Login</Link></span>
+                <p className="flex justify-center space-x-1">
+                  <span>Already Have an Account?</span>
+                  <span>
+                    <Link
+                      to="/login"
+                      className="text-blue-500 hover:underline hover:text-blue-600 font-medium"
+                    >
+                      {" "}
+                      Please Login
+                    </Link>
+                  </span>
                 </p>
               </div>
             </fieldset>
