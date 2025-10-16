@@ -62,7 +62,7 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex justify-center items-center">
-      <div className="card bg-base-100 w-full mx-auto max-w-sm shrink-0 shadow-2xl">
+      <div className="card bg w-full mx-auto max-w-sm shrink-0 shadow-2xl">
         <div className="card-body">
           <h1 className="text-3xl font-bold">{user ? "" : "LogIn"}</h1>
           <form onSubmit={handlelogin}>
@@ -91,7 +91,7 @@ const Login = () => {
                 <input
                   type="email"
                   name="email"
-                  className="input"
+                  className="input w-full"
                   placeholder="Email"
                 />
                 {/* password */}
@@ -99,7 +99,7 @@ const Login = () => {
                   <label className="label">Password</label>
                   <input
                     type={show ? "text" : "password"}
-                    className="input"
+                    className="input w-full"
                     name="password"
                     placeholder="Password"
                   />
@@ -110,7 +110,7 @@ const Login = () => {
                     {show ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>}
                   </span>
                 </div>
-                <button className="btn btn-neutral mt-4">Login</button>
+                <button className="btn btn-bg mt-4">Login</button>
                 <div className="">
                   <p className="flex justify-center space-x-1">
                     <span>Didn't Have an Account?</span>

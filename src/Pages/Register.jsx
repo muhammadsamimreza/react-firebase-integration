@@ -23,7 +23,7 @@ const Register = () => {
   };
   return (
     <div className="min-h-screen flex justify-center items-center">
-      <div className="card bg-base-100 w-full mx-auto max-w-sm shrink-0 shadow-2xl">
+      <div className="card bg w-full mx-auto max-w-sm shrink-0 shadow-2xl">
         <div className="card-body">
           <h1 className="text-3xl font-bold">Register now!</h1>
           <form onSubmit={handleRegister}>
@@ -33,7 +33,7 @@ const Register = () => {
                 <label className="label">Email</label>
                 <input
                   type="email"
-                  className="input"
+                  className="input w-full"
                   name="email"
                   placeholder="Email"
                 />
@@ -43,7 +43,7 @@ const Register = () => {
                 <label className="label">Password</label>
                 <input
                   type={show ? "text" : "password"}
-                  className="input"
+                  className="input w-full"
                   name="password"
                   placeholder="Password"
                 />
@@ -51,7 +51,7 @@ const Register = () => {
                     {show ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>} 
                    </span>
               </div>
-              <button className="btn btn-neutral mt-4">Register</button>
+              <button className="btn btn-bg mt-4">Register</button>
               <div className="">
                 <p className="flex justify-center space-x-1">
                   <span>Already Have an Account?</span>

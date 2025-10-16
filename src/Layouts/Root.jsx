@@ -6,7 +6,9 @@ const Root = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <Outlet></Outlet>
+            <div className='body-bg'>
+                <Outlet></Outlet>
+            </div>
         </div>
     );
 };

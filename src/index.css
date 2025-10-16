@@ -5,3 +5,19 @@ ul a.active{
     color: teal;
     text-decoration: underline;
 }
+
+.body-bg{
+    @apply bg-gradient-to-r from-teal-400 from-20% via-teal-300 to-emerald-400 to-80%
+}
+.btn-bg{
+    @apply shadow-lg hover:scale-102 transform transition bg-gradient-to-l from-indigo-500 from-10% to-emerald-500 to-90%
+}
+/* .bg{
+    @apply bg-radial-[at_50%_75%] from-sky-200 via-blue-400 to-indigo-900 to-90%
+} */
+.bg{
+    @apply bg-conic-180 from-indigo-600 via-indigo-300 to-indigo-600
+}
+.field-bg{
+    @apply bg-gradient-to-r from-indigo-500 from-20%  to-indigo-500 to-80% 
+}
